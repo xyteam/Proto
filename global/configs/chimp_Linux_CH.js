@@ -73,7 +73,7 @@ module.exports = {
         args: [
                 "--disable-infobars",
                 "--no-first-run",
-                "--proxy-server=" + process.env.http_proxy,
+                // "--proxy-server=" + process.env.http_proxy,
                 "--window-size=" + myDISPLAYSIZE.replace('x',','),
                 "--user-data-dir=/tmp/chrome_profile_" + process.env.DISPLAY.substr(1),
                 "--bypass-app-banner-engagement-checks"
