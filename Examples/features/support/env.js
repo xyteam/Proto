@@ -1,0 +1,1 @@
+module.exports = require(process.env.ProjectFullPath + "/global/support/env");
