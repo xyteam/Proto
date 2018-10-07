@@ -6,6 +6,6 @@ Feature: Use browser inside steps
   @watch
   Scenario: Visit Github
     When  I visit "https://github.com/"
-    Then  I should see the title of "github.com"
+    Then  I should see the title contains the keyword of "github"
 
     

@@ -1,7 +1,7 @@
 // Recommended filename: Then_I_should_see_the_title_of_#.js
 module.exports = function() {
-  this.Given(/^I should see the title of "([^"]*)"$/, {timeout: process.env.StepTimeoutInMS}, function (title) {
+  this.Given(/^I should see the title contains the keyword of "([^"]*)"$/, {timeout: process.env.StepTimeoutInMS}, function (keyword) {
     // Write the automation code here
-    expect(browser.getTitle()).toEqual(title);
+    expect(browser.getTitle().toLowerCase()).toContain(keyword);
   });
 };
