@@ -20,6 +20,7 @@ const myChromePreference_json = '{"download":{"default_directory":"' + myDownloa
 fs.existsSync(myChromeProfilePath) || fs.mkdirSync(myChromeProfilePath);
 fs.existsSync(myChromeProfilePath + '/Default') || fs.mkdirSync(myChromeProfilePath + '/Default');
 fs.writeFileSync(myChromeProfilePath + '/Default/Preferences', myChromePreference_json);
+const myBrowserProxySetting = (process.env.http_proxy) ? "--proxy-server=" + process.env.http_proxy : "--no-proxy-server";
 
 module.exports = {
   // - - - - CHIMP - - - -
@@ -73,10 +74,10 @@ module.exports = {
         args: [
                 "--disable-infobars",
                 "--no-first-run",
-                // "--proxy-server=" + process.env.http_proxy,
                 "--window-size=" + myDISPLAYSIZE.replace('x',','),
                 "--user-data-dir=/tmp/chrome_profile_" + process.env.DISPLAY.substr(1),
-                "--bypass-app-banner-engagement-checks"
+                "--bypass-app-banner-engagement-checks",
+                myBrowserProxySetting
               ],
         prefs: {
           'credentials_enable_service': false,
